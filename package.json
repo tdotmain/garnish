@@ -1,0 +1,29 @@
+{
+  "name": "garnish",
+  "version": "0.0.1",
+  "description": "Decorating dishes & making slop look pretty!",
+  "keywords": [
+    "ui-kit",
+    "design-system"
+  ],
+  "author": "Tristan Navarrete",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdotmain/garnish/issues"
+  },
+  "homepage": "https://github.com/tdotmain/garnish#readme",
+  "scripts": {
+    "start": "lerna run start",
+    "test": "lerna run test",
+    "new-version": "lerna version --conventional-commits --yes",
+    "diff": "lerna diff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdotmain/garnish.git"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "main": "index.js"
+}
