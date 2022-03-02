@@ -1,4 +1,4 @@
-import createIcon from 'icon'
+import createIcon from '@garnish/icon'
 
 import Sun from './icons/Sun.svg'
 

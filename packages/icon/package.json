@@ -1,5 +1,5 @@
 {
-  "name": "@garnish/icons",
+  "name": "@garnish/icon",
   "version": "0.0.1-alpha.0",
   "description": "Decorating dishes & making slop look pretty!",
   "main": "index.js",
@@ -35,7 +35,6 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {
-    "@garnish/icon": "^0.0.1-alpha.0",
     "@testing-library/jest-dom": "^5.16.2",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.3"
