@@ -1,5 +1,5 @@
 {
-  "name": "icons",
+  "name": "@garnish/icons",
   "version": "0.0.1",
   "description": "Decorating dishes & making slop look pretty!",
   "main": "index.js",
