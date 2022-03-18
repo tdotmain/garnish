@@ -33,6 +33,7 @@ export function Switch(props: SwitchProps) {
         {...rest}
         className={styles.input}
         type="checkbox"
+        aria-checked={checked}
         checked={checked}
       />
       <span className={styles.slider}></span>
