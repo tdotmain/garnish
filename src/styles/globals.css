@@ -1,0 +1,7 @@
+.garnish_icon {
+  @apply w-auto;
+}
+
+html, body {
+  @apply bg-black;
+}

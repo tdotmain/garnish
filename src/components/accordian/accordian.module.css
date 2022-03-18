@@ -1,0 +1,37 @@
+.garnish_accordian {
+  @apply flex flex-col;
+  @apply hover:ring-4;
+  @apply active:ring-blue-300;
+}
+
+.garnish_accordian:hover .garnish_accordian_header {
+  @apply border-gray-300;
+}
+
+.garnish_accordian:hover .garnish_accordian_content {
+  @apply border-gray-300;
+}
+
+.garnish_accordian_header {
+  @apply flex w-full p-4 bg-white border rounded-sm cursor-pointer;
+  @apply hover:border-gray-300;
+}
+
+.garnish_accordian_content {
+  @apply block w-full p-4 bg-white;
+  @apply border border-t-0;
+}
+
+.garnish_accordian_expanded {
+  @apply border-b-0;
+}
+
+.garnish_accordian .garnish_icon {
+  height: 1.5em;
+  width: auto;
+}
+.garnish_accordian .garnish_icon * {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+

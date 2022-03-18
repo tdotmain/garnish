@@ -1,0 +1,35 @@
+.garnish_switch {
+  @apply relative inline-block w-12 bg-white cursor-pointer;
+  @apply hover:ring-4;
+  @apply active:ring-blue-300;
+  border-radius: 50px;
+}
+
+.garnish_switch_checked .garnish_slider {
+  @apply ml-6;
+}
+
+.garnish_input {
+  @apply w-0 h-0 opacity-0;
+}
+
+.garnish_input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.garnish_input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.garnish_input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+.garnish_slider {
+  @apply top-1 left-1 absolute inset-0 w-4 h-4 transition-all duration-100 bg-gray-500 cursor-pointer;
+  border-radius: 50px;
+  
+}

@@ -1,0 +1,32 @@
+.garnish_button {
+  @apply whitespace-nowrap flex items-center justify-between;
+  @apply p-1 text-sm rounded-sm;
+  @apply hover:opacity-90;
+}
+
+.garnish_button.garnish_button-primary {
+  @apply bg-emerald-500 text-white;
+}
+
+.garnish_button.garnish_button-secondary {
+  @apply text-white bg-gray-400;
+}
+.garnish_button.garnish_button-info {
+  @apply text-white bg-blue-500;
+}
+.garnish_button.garnish_button-warning {
+  @apply text-white bg-yellow-500;
+}
+.garnish_button.garnish_button-danger {
+  @apply text-white bg-red-500;
+}
+
+.garnish_button .garnish_icon {
+  height: 1.5em;
+  width: auto;
+}
+.garnish_button .garnish_icon * {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
+

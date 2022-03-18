@@ -1,0 +1,23 @@
+.garnish_viewport_slider_container {
+  @apply flex w-full border rounded-sm;
+  @apply p-2;
+}
+
+.garnish_viewport_slider_content {
+  @apply block w-full;
+}
+
+.garnish_viewport_slider_handle {
+  @apply relative flex flex-col items-center justify-center;
+  @apply bg-gray-100 w-20 py-12 cursor-grab;
+  @apply active:cursor-grabbing active:shadow;
+  @apply hover:shadow; 
+  @apply transition-all ease-in-out duration-200;
+}
+
+.garnish_viewport_slider_handle span {
+  @apply bg-gray-500;
+  width: 1.27rem;
+  height: 2px;
+  margin: 0.15rem auto;
+}
