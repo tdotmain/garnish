@@ -13,8 +13,6 @@ import { Button, PlusIcon } from '@garnish/ui';
 Under the hood, it applies tailwind classes.
 ```
 .garnish-button {
-  @apple("px-4 py-2 bg-emerald-500 text-white")
+  @apply("px-4 py-2 bg-emerald-500 text-white")
 }
 ```
-
-
