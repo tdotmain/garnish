@@ -1,5 +1,5 @@
 import * as React from "react";
-import cn from "classnames";
+import classnames from "classnames";
 import css from "./viewport-slider.module.css";
 import { useWindowSize } from "../../hooks";
 

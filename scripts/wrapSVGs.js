@@ -15,12 +15,12 @@ const wrappedIconFile = (file) => {
   const name = file.replace(".svg", "")
   return `
 import * as React from "react";
-import cn from "classnames";
+import classnames from "classnames";
 
 import ${name} from "./${name}.svg";
 
 export function ${namedIconExport(name)}({ className = "", ...props }) {
-  const iconClassName = cn("garnish_icon", className);
+  const iconClassName = classnames("garnish_icon", className);
   return <${name} className={iconClassName}
     preserveAspectRatio="xMinYMin meet"
     fill="currentColor" 

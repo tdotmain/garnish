@@ -1,36 +1,55 @@
+/* ACCORDIAN */
+/* ACCORDIAN WRAPPER */
 .garnish_accordian {
-  @apply flex flex-col;
-  @apply hover:ring-4;
-  @apply active:ring-blue-300;
+  @apply inline-flex flex-col;
+  @apply w-full;
 }
 
-.garnish_accordian:hover .garnish_accordian_header {
-  @apply border-gray-300;
+/* MODIFIERS */
+.garnish_accordian.garnish_accordian_rounded {
+  border-radius: 50px;
+}
+.garnish_accordian.garnish_accordian_rounded > .garnish_accordian_header {
+  border-radius: 30px;
 }
 
-.garnish_accordian:hover .garnish_accordian_content {
-  @apply border-gray-300;
+.garnish_accordian.garnish_accordian_rounded > .garnish_accordian_content {
+  border-radius: 50px;
 }
 
-.garnish_accordian_header {
+.garnish_accordian.garnish_accordian_expanded.garnish_accordian_rounded > .garnish_accordian_header {
+  border-radius: 30px 30px 0px 0px;
+}
+
+.garnish_accordian.garnish_accordian_expanded.garnish_accordian_rounded > .garnish_accordian_content {
+  border-radius: 0px 0px 30px 30px;
+}
+
+/* HEADER */
+.garnish_accordian.garnish_accordian_expanded > .garnish_accordian_header {
+  @apply hover:border-gray-400 border;
+}
+.garnish_accordian > .garnish_accordian_header {
   @apply flex w-full p-4 bg-white border rounded-sm cursor-pointer;
-  @apply hover:border-gray-300;
+  @apply hover:border-gray-400;
 }
 
-.garnish_accordian_content {
-  @apply block w-full p-4 bg-white;
-  @apply border border-t-0;
+/* CONTENT */
+.garnish_accordian.garnish_accordian_expanded > .garnish_accordian_content {
+  @apply h-auto p-4 border border-t-0 opacity-100;
+}
+.garnish_accordian > .garnish_accordian_content {
+  @apply block w-full h-0 p-0 overflow-hidden transition-opacity duration-300 bg-white;
+  /* @apply h-0 p-0 overflow-hidden; */
+  /* @apply transition-height duration-300; */
 }
 
-.garnish_accordian_expanded {
-  @apply border-b-0;
-}
-
-.garnish_accordian .garnish_icon {
+/* HANDLING ICONS */
+.garnish_accordian > .garnish_icon {
   height: 1.5em;
   width: auto;
 }
-.garnish_accordian .garnish_icon * {
+.garnish_accordian > .garnish_icon * {
   stroke: currentColor !important;
   fill: currentColor !important;
 }

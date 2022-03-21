@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-
 import {
   Button,
   ChevronDownIcon,
@@ -54,49 +53,70 @@ const Home: NextPage = ({ tailwindColors }) => {
           value={`${value}`}
         />
       </div>
-      <div>
-        {garnish.theme.mode}
-        <Switch
-          name="theme.mode"
-          checked={garnish.theme.mode}
-          onChange={garnish.theme.toggleTheme}
-        />
-      </div>
+
       {/* {copied ? 'Copied' : 'Copy'} */}
-      <div className="w-full">
-        <p className="mb-2 text-2xl">Colors</p>
-        <Accordian label="Color Table" openOnLoad>
-          <div className="grid gap-4">
-            <ColorRunway label="Plains" color={colors['plains']} />
-            <ColorRunway label="Garnish" color={colors['atlantis']} />
-            {/* {Object.keys(colors).map((color) => (
-            <ColorRunway color={colors[color]} />
-          ))} */}
+      <div className="w-full space-y-12">
+        <div className="">
+          <p className="mb-2 text-2xl">Colors</p>
+          <Accordian label="Color Table">
+            <div className="grid gap-4">
+              <ColorRunway label="Plains" color={colors['plains']} />
+              <ColorRunway label="Garnish" color={colors['atlantis']} />
+              {/* {Object.keys(colors).map((color) => (
+              <ColorRunway color={colors[color]} />
+            ))} */}
+            </div>
+          </Accordian>
+        </div>
+        <div className="">
+          <p className="mb-2 text-2xl">Switch</p>
+          <Accordian label="Color Table" openOnLoad>
+            <div>
+              <span className="mr-2">{garnish.theme.mode}</span>
+              <Switch
+                name="theme.mode"
+                checked={garnish.theme.mode === 'dark'}
+                onChange={garnish.theme.toggleTheme}
+              />
+            </div>
+          </Accordian>
+        </div>
+        <div>
+          <p className="mb-2 text-2xl">Buttons!</p>
+          <div
+            className="w-full p-2 my-2 space-y-2 border rounded-sm"
+            id="buttons"
+          >
+            <div className="flex space-x-2">
+              <Button appearance="warning" iconAfter={<SunIcon />}></Button>
+              <Button>
+                <MoonIcon />
+              </Button>
+              <Button appearance="info">
+                Info
+                <ChevronUpIcon />
+              </Button>
+              <Button appearance="warning">
+                Warning
+                <ChevronLeftIcon />
+              </Button>
+              <Button appearance="danger">
+                Danger
+                <ChevronDownIcon />
+              </Button>
+            </div>
           </div>
-        </Accordian>
-        <p className="mb-2 text-2xl">Buttons!</p>
-        <div className="w-full p-2 my-2 border rounded-sm" id="buttons">
-          <div className="sm:flex-row sm:space-y-0 sm:space-x-2 flex flex-col flex-wrap space-y-3">
-            <Button>
-              Primary
-              <SunIcon />
-            </Button>
-            <Button variant="secondary" className="text-black">
-              Secondary
-              <MoonIcon />
-            </Button>
-            <Button variant="info">
-              Info
-              <ChevronUpIcon />
-            </Button>
-            <Button variant="warning">
-              Warning
-              <ChevronLeftIcon />
-            </Button>
-            <Button variant="danger">
-              Danger
-              <ChevronDownIcon />
-            </Button>
+        </div>
+
+        <div>
+          <p className="mb-2 text-2xl">Accordians</p>
+          <div className="w-full p-2 my-2 space-y-2 border rounded-sm">
+            <Accordian label="Hello!">
+              <Accordian label="Boo!">Hi again!!</Accordian>
+            </Accordian>
+            <Accordian label="Rounded" rounded>
+              Rounded
+            </Accordian>
           </div>
         </div>
         <div className="text-center">

@@ -1,3 +1,8 @@
+@value v-primary: #BF4040;
+@value s-black: black-selector;
+@value m-large: (min-width: 960px);
+
+
 .garnish_icon {
   @apply w-auto;
 }

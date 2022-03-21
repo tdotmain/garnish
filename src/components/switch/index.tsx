@@ -1,5 +1,5 @@
 import * as React from "react";
-import cn from "classnames";
+import classnames from "classnames";
 import css from "./switch.module.css";
 
 interface SwitchProps {
@@ -10,30 +10,37 @@ interface SwitchProps {
 
 export function Switch(props: SwitchProps) {
   const { checked, onChange, ...rest } = props;
-  console.log(checked);
+
+  const switchRef = React.useRef();
+
   const [isChecked, setIsChecked] = React.useState(checked);
 
   const _onChange = (event) => {
     setIsChecked(!isChecked);
-    console.log(onChange);
     if (onChange) onChange(!isChecked);
   };
 
   const styles = {
-    switch: cn(css.garnish_switch, {
+    switch: classnames(css.garnish_switch, {
       garnish_switch_checked: isChecked,
     }),
-    input: cn(css.garnish_input),
-    slider: cn(css.garnish_slider),
+    input: classnames(css.garnish_input),
+    slider: classnames(css.garnish_slider),
   };
 
   return (
-    <label onClick={_onChange} htmlFor={props.name} className={styles.switch}>
+    <label
+      onClick={() => switchRef.current.click()}
+      htmlFor={props.name}
+      className={styles.switch}
+    >
       <input
+        ref={switchRef}
         {...rest}
         className={styles.input}
         type="checkbox"
         aria-checked={checked}
+        onChange={_onChange}
         checked={checked}
       />
       <span className={styles.slider}></span>

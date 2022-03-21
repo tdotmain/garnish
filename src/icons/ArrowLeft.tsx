@@ -1,11 +1,11 @@
 
 import * as React from "react";
-import cn from "classnames";
+import classnames from "classnames";
 
 import ArrowLeft from "./ArrowLeft.svg";
 
 export function ArrowLeftIcon({ className = "", ...props }) {
-  const iconClassName = cn("garnish_icon", className);
+  const iconClassName = classnames("garnish_icon", className);
   return <ArrowLeft className={iconClassName}
     preserveAspectRatio="xMinYMin meet"
     fill="currentColor" 

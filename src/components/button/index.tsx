@@ -1,47 +1,76 @@
 import * as React from "react";
-import cn from "classnames";
+import classnames from "classnames";
 import css from "./button.module.css";
 
-const variants = ["primary", "secondary", "info", "warning", "danger"] as const;
+const appearanceTypes = [
+  "default",
+  "unstyled",
+  "success",
+  "info",
+  "warning",
+  "danger",
+  "link",
+] as const;
 
-type Variant = typeof variants[number];
+type Appearnace = typeof appearanceTypes[number];
 
 interface ButtonProps {
-  variant?: Variant;
+  appearance?: Appearnace;
   className?: string;
   children?: React.ReactNode;
+  iconBefore?: React.ReactNode;
+  iconAfter?: React.ReactNode;
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
+  isLoading?: boolean;
 }
 
 const defaults = {
-  variant: "primary",
-  className: "",
-  children: null,
+  appearance: appearanceTypes[0],
+  isLoading: false,
 };
 
-function variantStyle(variant) {
-  if (variants.includes(variant)) {
-    return `garnish_button-${variant}`;
+function appearanceStyle(appearnace) {
+  if (appearanceTypes.includes(appearnace)) {
+    return `garnish_button_${appearnace}`;
   }
-  return "garnish_button-primary";
+  return `garnish_button_${appearanceTypes[0]}`;
 }
 
 export function Button({
-  variant,
+  appearance,
   className,
   children,
+  iconBefore,
+  iconAfter,
+  addonBefore,
+  addonAfter,
+  isLoading,
   ...props
 }: ButtonProps) {
-  const config = Object.assign({}, defaults, { variant, className, children });
+  const config = Object.assign({}, defaults, {
+    appearance,
+    className,
+    children,
+  });
   const styles = {
-    button: cn(
-      variantStyle(config.variant),
+    button: classnames(
       css.garnish_button,
-      config.className
+      appearanceStyle(config.appearance),
+      config.className,
+      {
+        garnish_button_loading: isLoading,
+      }
     ),
   };
+
   return (
     <button className={styles.button} {...props}>
-      {config.children}
+      {addonBefore && addonBefore}
+      {iconBefore && iconBefore}
+      {config.children && config.children}
+      {iconAfter && iconAfter}
+      {addonAfter && addonAfter}
     </button>
   );
 }

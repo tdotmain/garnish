@@ -1,26 +1,50 @@
 .garnish_button {
-  @apply whitespace-nowrap flex items-center justify-between;
-  @apply p-1 text-sm rounded-sm;
+  @apply whitespace-nowrap border-inherit w-min inline-flex items-center justify-between p-2 text-sm rounded-sm;
   @apply hover:opacity-90;
+  @apply active:ring ring-inset;
 }
 
-.garnish_button.garnish_button-primary {
-  @apply bg-emerald-500 text-white;
+/* Modifiers */
+.garnish_button_rounded {
+  border-radius: 50px !important;
 }
 
-.garnish_button.garnish_button-secondary {
-  @apply text-white bg-gray-400;
+/* APPEARANCES */
+.garnish_button.garnish_button_default {
+  @apply text-black bg-white;
+  @apply border border-gray-300;
+  @apply hover:border-gray-400;
+  @apply active:ring-gray-300 active:bg-gray-50;
 }
-.garnish_button.garnish_button-info {
+
+.garnish_button.garnish_button_unstyled {}
+
+.garnish_button.garnish_button_success {
+  @apply bg-emerald-500 border-inherit text-white;
+  @apply active:ring-emerald-600;
+}
+
+.garnish_button.garnish_button_info {
   @apply text-white bg-blue-500;
-}
-.garnish_button.garnish_button-warning {
-  @apply text-white bg-yellow-500;
-}
-.garnish_button.garnish_button-danger {
-  @apply text-white bg-red-500;
+  @apply active:ring-blue-600;
 }
 
+.garnish_button.garnish_button_warning {
+  @apply text-white bg-yellow-500;
+  @apply active:ring-yellow-600;
+}
+
+.garnish_button.garnish_button_danger {
+  @apply text-white bg-red-500;
+  @apply active:ring-red-600;
+}
+
+.garnish_button.garnish_button_link {
+  @apply text-white bg-red-500;
+  @apply active:ring-red-600;
+}
+
+/* ICON HANDLING */
 .garnish_button .garnish_icon {
   height: 1.5em;
   width: auto;

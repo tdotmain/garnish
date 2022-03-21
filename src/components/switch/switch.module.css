@@ -1,8 +1,13 @@
 .garnish_switch {
   @apply relative inline-block w-12 bg-white cursor-pointer;
-  @apply hover:ring-4;
-  @apply active:ring-blue-300;
   border-radius: 50px;
+}
+
+.garnish_switch {
+  @apply text-black bg-white;
+  @apply border border-gray-300;
+  @apply hover:opacity-95 hover:border-gray-400;
+  @apply active:ring active:ring-gray-300;
 }
 
 .garnish_switch_checked .garnish_slider {

@@ -1,48 +1,57 @@
 import * as React from "react";
-import cn from "classnames";
+import classnames from "classnames";
 import css from "./accordian.module.css";
 
-const variants = ["primary", "secondary", "info", "warning", "danger"] as const;
+const appearanceTypes = [
+  "default",
+  "unstyled",
+  "success",
+  "info",
+  "warning",
+  "danger",
+] as const;
 
-type Variant = typeof variants[number];
+type Appearance = typeof appearanceTypes[number];
+
+type AccordianClassnames = {
+  accordian?: string;
+  header?: string;
+  content?: string;
+};
 
 interface AccordianProps {
   label: React.ReactNode;
-  variant?: Variant;
+  appearance?: Appearance;
   className?: string;
-  headerClassName?: string;
-  contentClassName?: string;
+  classNames?: AccordianClassnames;
   children?: React.ReactNode;
   onChange?: (...args) => void;
   openOnLoad?: boolean;
+  rounded?: boolean;
 }
 
 const defaults = {
-  variant: "primary",
-  className: "",
-  headerClassName: "",
-  contentClassName: "",
-  children: null,
+  appearance: appearanceTypes[0],
   label: "",
   openOnLoad: false,
 };
 
 function variantStyle(variant) {
-  if (variants.includes(variant)) {
-    return `garnish_accordian-${variant}`;
+  if (appearanceTypes.includes(variant)) {
+    return `garnish_accordian_${variant}`;
   }
-  return "garnish_accordian_primary";
+  return `garnish_accordian_${appearanceTypes[0]}`;
 }
 
 export function Accordian(props: AccordianProps) {
   const {
-    variant,
+    appearance,
     className,
-    headerClassName,
-    contentClassName,
     onChange,
     openOnLoad,
     label,
+    classNames,
+    rounded,
     ...rest
   } = props;
   const config = Object.assign({}, defaults, rest);
@@ -56,22 +65,26 @@ export function Accordian(props: AccordianProps) {
   };
 
   const styles = {
-    accordian: cn(css.garnish_accordian, variantStyle(variant), className),
-    header: cn(css.garnish_accordian_header, {
-      garnish_accordian_expanded: open,
-    }),
-    content: css.garnish_accordian_content,
+    accordian: classnames(
+      css.garnish_accordian,
+      variantStyle(appearance),
+      classNames?.header,
+      className,
+      {
+        garnish_accordian_expanded: open,
+        garnish_accordian_rounded: rounded,
+      }
+    ),
+    header: classnames(classNames?.header, css.garnish_accordian_header),
+    content: classnames(classNames?.header, css.garnish_accordian_content),
   };
 
   return (
-    <div
-      aria-expanded={open}
-      onClick={onClick}
-      className={styles.accordian}
-      {...rest}
-    >
-      <div className={styles.header}>{label}</div>
-      {open && <div className={styles.content}>{config.children}</div>}
+    <div aria-expanded={open} className={styles.accordian} {...rest}>
+      <div onClick={onClick} className={styles.header}>
+        {label}
+      </div>
+      <div className={styles.content}>{config.children && config.children}</div>
     </div>
   );
 }

@@ -39,16 +39,17 @@ export default [{
         require('tailwindcss'),
         require('autoprefixer'),
       ],
-      exportGlobals: true,
-      minimize: true,
+      minimize: process.env.NODE_ENV === "production",
       sourceMap: false,
       // minimize: true,
       // extract: false,
       // modules: true,
       globalModulePaths: [/src\/styles/],
+      exportGlobals: true,
       modules: {
         // see generateScopedName options here
         // https://github.com/css-modules/postcss-modules
+        // generateScopedName: '[hash:base64:5]',
         generateScopedName: '[local]',
       },
     }),
